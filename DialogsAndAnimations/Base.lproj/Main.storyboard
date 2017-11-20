@@ -18,8 +18,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="paris" translatesAutoresizingMaskIntoConstraints="NO" id="vCu-qC-TT9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkb-r2-T8l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lVP-u9-NXT">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIN-C7-fQf">
-                                <rect key="frame" x="0.0" y="534" width="375" height="133"/>
+                                <rect key="frame" x="0.0" y="601" width="375" height="66"/>
                                 <connections>
                                     <segue destination="txu-mB-gk4" kind="embed" id="h4K-lW-Vj9"/>
                                 </connections>
@@ -29,8 +40,16 @@
                         <constraints>
                             <constraint firstItem="SIN-C7-fQf" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="00k-ka-95D"/>
                             <constraint firstItem="SIN-C7-fQf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0NW-Zw-Rmx"/>
+                            <constraint firstItem="vCu-qC-TT9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2AX-WQ-rdX"/>
+                            <constraint firstItem="vCu-qC-TT9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5rO-Bp-6Q2"/>
+                            <constraint firstItem="vCu-qC-TT9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QaD-qs-4d4"/>
+                            <constraint firstItem="rkb-r2-T8l" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="VHS-8l-Upp"/>
+                            <constraint firstItem="rkb-r2-T8l" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WOY-JE-bVG"/>
+                            <constraint firstItem="rkb-r2-T8l" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Xui-2w-Wd8"/>
                             <constraint firstItem="SIN-C7-fQf" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YqR-aP-6q5"/>
-                            <constraint firstItem="SIN-C7-fQf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="yDx-D8-pGz"/>
+                            <constraint firstItem="rkb-r2-T8l" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rs7-q7-jo2"/>
+                            <constraint firstItem="vCu-qC-TT9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="u5B-q2-ttn"/>
+                            <constraint firstItem="SIN-C7-fQf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="yDx-D8-pGz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -44,18 +63,18 @@
             <objects>
                 <collectionViewController id="txu-mB-gk4" customClass="IconsCollectionViewController" customModule="DialogsAndAnimations" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5Lx-CS-nvT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qv9-jd-0TZ">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qv9-jd-0TZ">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H1c-Ui-UcE" customClass="IconCell" customModule="DialogsAndAnimations" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="iconCell" id="H1c-Ui-UcE" customClass="IconCell" customModule="DialogsAndAnimations" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="8" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -90,5 +109,6 @@
     </scenes>
     <resources>
         <image name="icons8-alien" width="48" height="48"/>
+        <image name="paris" width="400" height="300"/>
     </resources>
 </document>

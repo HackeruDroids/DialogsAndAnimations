@@ -8,25 +8,14 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
+
 
 class IconsCollectionViewController: UICollectionViewController {
-
+//iconCell
+    private var data = [#imageLiteral(resourceName: "icons8-mario"), #imageLiteral(resourceName: "icons8-novel"), #imageLiteral(resourceName: "icons8-alien"), #imageLiteral(resourceName: "icons8-zubat"), #imageLiteral(resourceName: "icons8-desura"), #imageLiteral(resourceName: "icons8-pokemon"), #imageLiteral(resourceName: "icons8-rattata"), #imageLiteral(resourceName: "icons8-candy_cane"), #imageLiteral(resourceName: "icons8-pokeball_2"), #imageLiteral(resourceName: "icons8-filled_like"), #imageLiteral(resourceName: "icons8-super_mario"), #imageLiteral(resourceName: "icons8-christmas_stocking")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     /*
@@ -43,23 +32,33 @@ class IconsCollectionViewController: UICollectionViewController {
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 0
+        return data.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "iconCell", for: indexPath) as! IconCell
     
         // Configure the cell
-    
+        //get the image using the indexpath
+        let image = data[indexPath.item]
+        
+        cell.icon.image = image
+        
         return cell
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let icon = data[indexPath.item]
+        //if we have a listener notify the listener
+        listener?(icon)
+    }
+    
+    public var listener : ((_ image:UIImage)->Void)?
     // MARK: UICollectionViewDelegate
 
     /*

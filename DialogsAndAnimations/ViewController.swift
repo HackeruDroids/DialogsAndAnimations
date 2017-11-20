@@ -13,13 +13,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        //container
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dest = segue.destination as? IconsCollectionViewController else {return}
+        
+        dest.listener =  onImageTapped(_:) // {_ in }
     }
-
-
+    
+    func onImageTapped(_ image:UIImage){
+        print(image)
+    }
 }
 
