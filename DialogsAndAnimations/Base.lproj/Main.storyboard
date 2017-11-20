@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
         </scene>
-        <!--Collection View Controller-->
+        <!--Icons Collection View Controller-->
         <scene sceneID="UER-os-Cgt">
             <objects>
-                <collectionViewController id="txu-mB-gk4" sceneMemberID="viewController">
+                <collectionViewController id="txu-mB-gk4" customClass="IconsCollectionViewController" customModule="DialogsAndAnimations" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5Lx-CS-nvT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,13 +54,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H1c-Ui-UcE">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="H1c-Ui-UcE" customClass="IconCell" customModule="DialogsAndAnimations" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-alien" translatesAutoresizingMaskIntoConstraints="NO" id="Bvr-aL-3Wn">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Bvr-aL-3Wn" secondAttribute="trailing" id="E6u-Ae-s8F"/>
+                                    <constraint firstItem="Bvr-aL-3Wn" firstAttribute="leading" secondItem="H1c-Ui-UcE" secondAttribute="leading" id="aQ3-oO-1cz"/>
+                                    <constraint firstItem="Bvr-aL-3Wn" firstAttribute="top" secondItem="H1c-Ui-UcE" secondAttribute="top" id="hhD-L2-Zvz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Bvr-aL-3Wn" secondAttribute="bottom" id="lcp-HA-x8B"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="icon" destination="Bvr-aL-3Wn" id="Hw6-2N-pyh"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -71,7 +85,10 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IqN-91-1oU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="879" y="118"/>
+            <point key="canvasLocation" x="877.60000000000002" y="117.39130434782609"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icons8-alien" width="48" height="48"/>
+    </resources>
 </document>
