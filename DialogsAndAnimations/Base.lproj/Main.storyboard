@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIN-C7-fQf">
-                                <rect key="frame" x="0.0" y="533.5" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="534" width="375" height="133"/>
                                 <connections>
                                     <segue destination="txu-mB-gk4" kind="embed" id="h4K-lW-Vj9"/>
                                 </connections>
@@ -44,7 +44,7 @@
             <objects>
                 <collectionViewController id="txu-mB-gk4" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="5Lx-CS-nvT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="133"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qv9-jd-0TZ">
