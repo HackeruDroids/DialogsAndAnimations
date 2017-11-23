@@ -13,7 +13,14 @@ class ViewController: UIViewController{//}, IconCollectionViewDelegate {
 //
 //    }
     
-
+    @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
+    
+    @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
+        menuHeightConstraint.constant = 0
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
