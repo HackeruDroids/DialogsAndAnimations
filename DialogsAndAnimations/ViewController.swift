@@ -11,14 +11,54 @@ import UIKit
 class ViewController: UIViewController{//}, IconCollectionViewDelegate {
 //    func didSelectIcon(image: UIImage) {
 //
-    @IBAction func showDialog(_ sender: UIBarButtonItem) {
-        print("Dialog")
+    
+    var effect: UIVisualEffect?
+    @IBOutlet weak var blur: UIVisualEffectView!{
+        didSet{
+            //save the effect
+            effect = blur.effect
+            //cancel the effect
+            blur.effect = nil
+        }
+    }
+    
+    
+    
+    
+    @IBAction func toggleDialog(_ sender: UIBarButtonItem) {
+        isDialogVisibile ? (blur.effect = nil) : (blur.effect = effect)
         
-        //1) first position
-        self.dialog.center = view.center
-        self.view.addSubview(dialog)
+        isDialogVisibile ? dismissDialog() : presentDialog()
+        
         
     }
+    
+    var isDialogVisibile = false
+    
+    func dismissDialog(){
+        //state
+        isDialogVisibile = false
+        //animate()...
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.dialog.transform =  CGAffineTransform(translationX: 0, y: -self.view.frame.height)
+        }) { (_) in
+            self.dialog.removeFromSuperview()
+        }
+    }
+    func presentDialog(){
+        dialog.center = view.center
+        //starting point for the animation.
+        dialog.transform = CGAffineTransform(translationX: 0, y: -view.frame.height)
+        //add subview,
+        view.addSubview(dialog)
+        //state:
+        isDialogVisibile = true
+ 
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut, animations: {
+            self.dialog.transform = .identity
+        }, completion: nil)
+    }
+    
     
     @IBOutlet weak var dialog: UIView!
     //    }

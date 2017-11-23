@@ -62,7 +62,7 @@
                     <navigationItem key="navigationItem" title="Animate Me..." largeTitleDisplayMode="always" id="iNI-nT-ox6">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="YXo-Jj-3OX">
                             <connections>
-                                <action selector="showDialog:" destination="BYZ-38-t0r" id="Kvu-FG-ZoI"/>
+                                <action selector="toggleDialog:" destination="BYZ-38-t0r" id="Kvu-FG-ZoI"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="URY-M8-orw">
@@ -73,6 +73,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="URY-M8-orw" id="qKF-RI-QHu"/>
+                        <outlet property="blur" destination="rkb-r2-T8l" id="ive-Uf-ymV"/>
                         <outlet property="dialog" destination="Hc1-nT-c9e" id="oyR-1N-Hoo"/>
                         <outlet property="menuHeightConstraint" destination="OJt-fG-gou" id="Xh3-Pt-OPS"/>
                     </connections>
