@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-DemiBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Animate Me...-->
         <scene sceneID="tne-QT-ifu">
@@ -55,6 +60,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Animate Me..." largeTitleDisplayMode="always" id="iNI-nT-ox6">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="YXo-Jj-3OX">
+                            <connections>
+                                <action selector="showDialog:" destination="BYZ-38-t0r" id="Kvu-FG-ZoI"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="URY-M8-orw">
                             <connections>
                                 <action selector="toggleMenu:" destination="BYZ-38-t0r" id="qvF-BY-aDT"/>
@@ -62,10 +72,56 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="URY-M8-orw" id="qKF-RI-QHu"/>
+                        <outlet property="dialog" destination="Hc1-nT-c9e" id="oyR-1N-Hoo"/>
                         <outlet property="menuHeightConstraint" destination="OJt-fG-gou" id="Xh3-Pt-OPS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Hc1-nT-c9e">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="152"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SoW-YH-jxj">
+                            <rect key="frame" x="8" y="8" width="224" height="136"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9To-Ob-Fo8">
+                                    <rect key="frame" x="0.0" y="0.0" width="224" height="28"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="19"/>
+                                    <color key="textColor" red="0.015393224719999999" green="0.76424482410000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qWm-v9-dXC">
+                                    <rect key="frame" x="0.0" y="36" width="224" height="28"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tAI-l7-tig">
+                                    <rect key="frame" x="0.0" y="72" width="224" height="28"/>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dd-Nq-ukn">
+                                    <rect key="frame" x="0.0" y="108" width="224" height="28"/>
+                                    <color key="backgroundColor" red="0.015393224719999999" green="0.76424482410000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Done!">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="SoW-YH-jxj" firstAttribute="leading" secondItem="NNK-1i-Xbt" secondAttribute="leading" constant="8" id="3Ae-Hd-m88"/>
+                        <constraint firstItem="NNK-1i-Xbt" firstAttribute="bottom" secondItem="SoW-YH-jxj" secondAttribute="bottom" constant="8" id="XTB-A9-9t8"/>
+                        <constraint firstItem="NNK-1i-Xbt" firstAttribute="trailing" secondItem="SoW-YH-jxj" secondAttribute="trailing" constant="8" id="dm0-5s-1Lt"/>
+                        <constraint firstItem="SoW-YH-jxj" firstAttribute="top" secondItem="NNK-1i-Xbt" secondAttribute="top" constant="8" id="jdU-9e-HsC"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="NNK-1i-Xbt"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
         </scene>

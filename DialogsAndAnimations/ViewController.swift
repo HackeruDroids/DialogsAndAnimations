@@ -11,20 +11,42 @@ import UIKit
 class ViewController: UIViewController{//}, IconCollectionViewDelegate {
 //    func didSelectIcon(image: UIImage) {
 //
-//    }
-    
-    @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
-    
-    @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
-        menuHeightConstraint.constant = 0
+    @IBAction func showDialog(_ sender: UIBarButtonItem) {
+        print("Dialog")
         
+        //1) first position
+        self.dialog.center = view.center
+        self.view.addSubview(dialog)
         
     }
     
+    @IBOutlet weak var dialog: UIView!
+    //    }
+    
+    @IBOutlet weak var menuHeightConstraint: NSLayoutConstraint!
+    
+    
+    var isMenuOpen: Bool{
+        return menuHeightConstraint.constant == 100
+    }
+    @IBAction func toggleMenu(_ sender: UIBarButtonItem) {
+        menuHeightConstraint.constant = isMenuOpen ? 0 : 100
+        
+        let v = sender.value(forKey: "view") as! UIView
+        
+      
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 10, options: [], animations: {
+             self.view.layoutIfNeeded()
+             v.transform = self.isMenuOpen ? CGAffineTransform(rotationAngle: .pi / 4) : .identity
+        }, completion: nil)
+        
+    }
+    @IBOutlet weak var addButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //container
+ 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -46,7 +68,7 @@ class ViewController: UIViewController{//}, IconCollectionViewDelegate {
         //starting point for the animation
         imageView.transform =  CGAffineTransform(translationX: 0, y: self.view.frame.height)
 
-        
+
         
         
         UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 10, options: [], animations: {
