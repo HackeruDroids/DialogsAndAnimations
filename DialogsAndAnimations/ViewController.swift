@@ -28,9 +28,7 @@ class ViewController: UIViewController{//}, IconCollectionViewDelegate {
     
     func onImageTapped(_ image:UIImage){
         //init an imageView
-        
-        
-        
+
         let imageView = UIImageView(image: image)
        
         //let iv = UIImageView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
@@ -41,17 +39,31 @@ class ViewController: UIViewController{//}, IconCollectionViewDelegate {
         //starting point for the animation
         imageView.transform =  CGAffineTransform(translationX: 0, y: self.view.frame.height)
 
-        UIView.animate(withDuration: 0.7, animations: {
-            imageView.transform = CGAffineTransform.identity
-        }) { _ in
-           // imageView.removeFromSuperview()
-        }
         
-        UIView.animate(withDuration: 0.5, delay: 0.7, options: .curveEaseInOut, animations: {
+        
+        
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 10, options: [], animations: {
+            imageView.transform = CGAffineTransform.identity
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.4, delay: 0.7, options: .curveEaseInOut, animations: {
             imageView.alpha = 0
-        }) { (_) in
+        }) { _ in
             imageView.removeFromSuperview()
         }
+        
+//        UIView.animate(withDuration: 0.7, animations: {
+//            //tranform, alpha, backgroundcolor, postioning:
+//            imageView.transform = CGAffineTransform.identity
+//        }) { _ in
+//           // imageView.removeFromSuperview()
+//        }
+//
+//        UIView.animate(withDuration: 0.5, delay: 0.7, options: .curveEaseInOut, animations: {
+//            imageView.alpha = 0
+//        }) { (_) in
+//            imageView.removeFromSuperview()
+        //}
         
 //        UIView.animate(withDuration: 0.6) {
 //            //transform: scale, translate, rotate
